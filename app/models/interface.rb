@@ -35,5 +35,6 @@ class Interface < ActiveRecord::Base
               :to => number,
               :body => text
     })
+  end
 
 end
