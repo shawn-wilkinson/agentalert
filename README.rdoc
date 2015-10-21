@@ -20,7 +20,7 @@ Before an agent goes into an appointment they can establish a "notification" by 
 
 ###Database Design
 
-![alt text](https://github.com/shanwndav/agentalert/images/schema.png "Agent Alert Schema")
+![alt text](https://github.com/shawndav/agentalert/blob/master/images/schema.png "Agent Alert Schema")
 
 
 ###User Stories
