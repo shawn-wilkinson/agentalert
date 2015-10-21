@@ -9,10 +9,11 @@ Rails.application.routes.draw do
 
 
   post '/contacts' => 'contacts#create'
+  get '/contacts/destroy/:id' => 'contacts#destroy'
 
   post '/interface' => 'interface#process_text'
   get '/interface/test_user_number/:id' => 'interface#test_user_number'
-
+  get '/interface/test_contact_number/:id' => 'interface#test_contact_number'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
