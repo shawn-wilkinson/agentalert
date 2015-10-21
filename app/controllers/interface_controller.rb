@@ -13,14 +13,14 @@ class InterfaceController < ApplicationController
     @user = User.find(params[:id])
     text = "Hello #{@user.name}, this is a test SMS from Agent Alert."
     send_text(@user.phone_number,text)
-    redirect_to '/users/#{params[:id]}'
+    redirect_to "/users/#{params[:id]}"
   end
 
   def test_contact_number
     @contact = Contact.find(params[:id])
     text = "Hello #{@contact.name}, this is a test SMS from Agent Alert."
     send_text(@contact.phone_number,text)
-    redirect_to '/users/#{params[:id]}'
+    redirect_to "/users/#{params[:id]}"
   end
 
   # def send_alert
