@@ -1,10 +1,9 @@
 <h4><%= @user.name %></p>
 
-
-    <h5>Your Contacts:</h5>
-    <%if !@contacts %>
+    <%if @contacts.count == 0 %>
       <a class="red darken-2 btn modal-trigger" href="#modal1"><i class="large material-icons">warning</i> Please Enter Contacts</a>
     <% else %>
+      <h5>Your Contacts:</h5>
       <table>
         <thead>
           <tr>
@@ -24,14 +23,19 @@
 
     <div class="row">
       <div class="col s6">
-
-     <%= form_for :contact, url: '/contacts' do |f| %>
-      Full Name: <%= f.text_field :name, class: 'field' %>
-      <br>
-      Phone Number: <%= f.text_field :phone_number, class: 'field' %>
-      <br><br>
-      <%= f.submit "Submit Contact", class: 'indigo btn'%>
+        <div class="container">
+      <h5>Add A Contact</h5>
+      <%= form_for :contact, url: '/contacts' do |f| %>
+        Full Name: <%= f.text_field :name, class: 'field' %>
+        <br>
+        Phone Number: <%= f.text_field :phone_number, class: 'field' %>
+        <br><br>
+        <%= f.submit "Submit Contact", class: 'indigo btn'%>
+        <% if @message %>
+          <p><%= @message %></p>
+        <% end %>
       <% end %>
+    </div>
 </div>
 </div>
 
