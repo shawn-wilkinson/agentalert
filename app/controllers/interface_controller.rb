@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 class InterfaceController < ApplicationController
 
   @@client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
