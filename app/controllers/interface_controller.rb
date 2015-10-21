@@ -20,6 +20,7 @@ class InterfaceController < ApplicationController
   private
 
   def send_text(number,text)
+    p 'in send text method'
     message = client.account.messages.create({
               :from => @@from,
               :to => number,
