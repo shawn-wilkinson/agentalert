@@ -30,16 +30,17 @@ ActiveRecord::Schema.define(version: 20151019221316) do
     t.string   "note"
     t.boolean  "checked_in?",   default: false
     t.boolean  "alert_worthy?", default: false
+    t.boolean  "alert_sent?",   default: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "phone_number"
-    t.string   "panic_word"
+    t.string   "name",            null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "phone_number",    null: false
+    t.string   "panic_word",      null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

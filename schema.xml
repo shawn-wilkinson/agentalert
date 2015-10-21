@@ -98,6 +98,9 @@
 <row name="alert_worthy?" null="1" autoincrement="0">
 <datatype>BINARY</datatype>
 <default>NULL</default></row>
+<row name="alert_sent?" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

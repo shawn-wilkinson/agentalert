@@ -1,0 +1,15 @@
+<br><br>
+<div class="row">
+  <div class="col s6">
+    <%= form_for :user, url: '/login' do |f| %>
+      Email: <%= f.text_field :email, class: 'field' %>
+      <br>
+      Password: <%= f.password_field :password, class: 'field' %>
+      <br><br>
+      <%= f.submit "Log In", class: 'red btn darken-4'%>
+    <% end %>
+    <% if @error %>
+      <p><%= @error %></p>
+    <% end %>
+  </div>
+</div>
