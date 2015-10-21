@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
       p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
       p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
       p "REQUEST IS XHR XHR XHR"
+      p params
 
     else
       p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"

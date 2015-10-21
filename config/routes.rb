@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+
+  # get '/users/test_number' => 'users#test_number'
   resources :users
+
   get '/logout' => 'users#logout'
   get '/login' => 'users#login'
   post '/login' => 'users#authenticate'
 
+
   post '/contacts' => 'contacts#create'
+
+  post '/interface' => 'interface#process_text'
+  get '/interface/test_user_number/:id' => 'interface#test_user_number'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
