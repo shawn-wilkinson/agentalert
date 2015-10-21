@@ -2,7 +2,7 @@ require 'twilio-ruby'
 
 class InterfaceController < ApplicationController
 
-  @@client = Twilio::REST::Client.new ENV[:ACCOUNT_SID], ENV[:AUTH_TOKEN]
+  @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
   @@from ='+15854818275'
 
   def process_text
