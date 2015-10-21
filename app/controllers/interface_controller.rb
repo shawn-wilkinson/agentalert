@@ -23,11 +23,12 @@ class InterfaceController < ApplicationController
     redirect_to '/users/#{params[:id]}'
   end
 
-  def send_alert
-    @user = User.find(params[:id])
-    if params[:note]
-      note = params[:note]
-    end
+  # def send_alert
+  #   @user = User.find(params[:id])
+  #   if params[:note]
+  #     note = params[:note]
+  #   end
+  # end
 
   private
 
