@@ -18,12 +18,14 @@ class Interface < ActiveRecord::Base
     send_text(phone_number,text)
   end
 
-  # def self.send_alert
-  #   @user = User.find(params[:id])
-  #   if params[:note]
-  #     note = params[:note]
-  #   end
-  # end
+  def self.send_alert(contact_name,user_name,phone_number,note=nil)
+    @user = User.find(params[:id])
+    text = "#{contact_name}, this is an alert from Agent Alert. Your contact #{user_name} may be in trouble."
+    if note
+      text = text.concat(" Note from them: #{note}")
+    end
+    send_text(phone_number,text)
+  end
 
   private
 

@@ -6,10 +6,8 @@ class ContactsController < ApplicationController
     if request.xhr?
     else
       if @contact.save
-
         redirect_to "/users/#{session[:user_id]}"
       else
-
         @message = "Invalid Contact."
         redirect_to "/users/#{session[:user_id]}"
       end
