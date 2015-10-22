@@ -2,27 +2,11 @@ require 'twilio-ruby'
 
 class InterfaceController < ApplicationController
 
-  def incoming_text
-    response = Twilio::TwiML::Response.new do |r|
-      r.Message "Hey there! I got a text from you."
-    end
-    puts response.text
-  end
-
   def incoming
     from = params[:From].to_s
     body = params[:Body].to_s
     response = Interface.process_text(from,body)
     respond(response)
-  end
-
-  def sms_quickstart
-    from = params[:From].to_s
-    body = params[:Body].to_s
-    p from
-    p body
-    message = "Hello, there friend.... Thanks for the message. #{from}, #{body}"
-    respond(message)
   end
 
   def test_user_number
@@ -40,7 +24,6 @@ class InterfaceController < ApplicationController
   def user_signup
     @user = User.find(params[:id])
     Interface.user_signup(@user.name,@user.phone_number)
-
   end
 
   def send_alert
