@@ -10,7 +10,6 @@ class InterfaceController < ApplicationController
   end
 
   def sms_quickstart
-    name = friends[sender] || "Mobile Monkey"
     twiml = Twilio::TwiML::Response.new do |r|
       r.Message "Hello, there friend.... Thanks for the message."
     end
