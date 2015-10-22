@@ -44,7 +44,7 @@ class InterfaceController < ApplicationController
         r.Message message
       end
       render text: response.text
-    end
+  end
 
   # def send_alert
   #   @user = User.find(params[:id])
