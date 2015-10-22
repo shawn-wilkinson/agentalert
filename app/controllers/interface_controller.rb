@@ -1,10 +1,11 @@
 class InterfaceController < ApplicationController
 
-  def process_text
-    twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "Hey there! I got a text from you."
-    end
-    twiml.text
+  def receive_text
+    # twiml = Twilio::TwiML::Response.new do |r|
+    #   r.Message "Hey there! I got a text from you."
+    # end
+    # twiml.text
+    Interface.receive_text(params)
   end
 
   def test_user_number

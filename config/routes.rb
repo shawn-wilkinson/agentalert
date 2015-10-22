@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post '/contacts' => 'contacts#create'
   get '/contacts/destroy/:id' => 'contacts#destroy'
 
-  get '/interface/receive_text' => 'interface#process_text'
+  post '/sms' => 'interface#receive_text'
+  get '/interface/receive_text' => 'interface#receive_text'
   get '/interface/test_user_number/:id' => 'interface#test_user_number'
   get '/interface/test_contact_number/:id' => 'interface#test_contact_number'
 

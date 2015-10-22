@@ -4,8 +4,11 @@ class Interface < ActiveRecord::Base
   @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
   @@from ='+15854818275'
 
-  def self.process_text
-    p params
+  def self.receive_text(params)
+     twiml = Twilio::TwiML::Response.new do |r|
+      r.Message "Hey there! I got a text from you."
+    end
+    return twiml.text
   end
 
   def self.test_user_number(name,phone_number)
