@@ -2,7 +2,7 @@ require 'twilio-ruby'
 
 class InterfaceController < ApplicationController
 
-  def receive_text
+  def incoming_text
     response = Twilio::TwiML::Response.new do |r|
       r.Message "Hey there! I got a text from you."
     end
@@ -10,7 +10,11 @@ class InterfaceController < ApplicationController
   end
 
   def sms_quickstart
-    message = "Hello, there friend.... Thanks for the message."
+    from = params[:From].to_s
+    body = params[:Body].to_s
+    p from
+    p body
+    message = "Hello, there friend.... Thanks for the message. #{from}, #{body}"
     respond(message)
   end
 
