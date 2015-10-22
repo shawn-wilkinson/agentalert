@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/sms-quickstart' => 'interface#sms_quickstart'
   post '/sms' => 'interface#receive_text'
+  get '/interface/incoming' => 'interface#incoming'
   get '/interface/receive_text' => 'interface#receive_text'
   get '/interface/test_user_number/:id' => 'interface#test_user_number'
   get '/interface/test_contact_number/:id' => 'interface#test_contact_number'

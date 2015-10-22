@@ -9,6 +9,13 @@ class InterfaceController < ApplicationController
     puts response.text
   end
 
+  def incoming
+    from = params[:From].to_s
+    body = params[:Body].to_s
+    response = Interface.process_text(from,body)
+    respond(response)
+  end
+
   def sms_quickstart
     from = params[:From].to_s
     body = params[:Body].to_s
