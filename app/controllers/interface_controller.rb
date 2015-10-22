@@ -9,6 +9,14 @@ class InterfaceController < ApplicationController
     puts response.text
   end
 
+  def sms_quickstart
+    name = friends[sender] || "Mobile Monkey"
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Message "Hello, there friend.... Thanks for the message."
+    end
+    twiml.text
+  end
+
   def test_user_number
     @user = User.find(params[:id])
     Interface.test_user_number(@user.name,@user.phone_number)
