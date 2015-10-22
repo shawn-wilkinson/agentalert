@@ -5,10 +5,10 @@ class Interface < ActiveRecord::Base
   @@from ='+15854818275'
 
   def self.receive_text(params)
-     twiml = Twilio::TwiML::Response.new do |r|
+     response = Twilio::TwiML::Response.new do |r|
       r.Message "Hey there! I got a text from you."
     end
-    return twiml.text
+    render_twiml response
   end
 
   def self.test_user_number(name,phone_number)
