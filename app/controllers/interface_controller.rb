@@ -10,10 +10,8 @@ class InterfaceController < ApplicationController
   end
 
   def sms_quickstart
-    twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "Hello, there friend.... Thanks for the message."
-    end
-    twiml.text
+    message = "Hello, there friend.... Thanks for the message."
+    respond(message)
   end
 
   def test_user_number
@@ -38,6 +36,15 @@ class InterfaceController < ApplicationController
     @contact = Contact.find(params[:id])
     Interface.send_alert(@contact.name,@contact.user.name,@contact.phone_number)
   end
+
+  private
+
+  def respond(message)
+      response = Twilio::TwiML::Response.new do |r|
+        r.Message message
+      end
+      render text: response.text
+    end
 
   # def send_alert
   #   @user = User.find(params[:id])
