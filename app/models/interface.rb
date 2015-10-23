@@ -6,7 +6,7 @@ class Interface < ActiveRecord::Base
 
   def self.process_text(from,body)
     if user = User.find(cleaned_number(from))
-      if body.include?(user.panic_word)
+      if body.downcase.include?(user.panic_word)
         alert_contacts(user)
         return "Your contacts have been alerted."
       else
@@ -53,7 +53,7 @@ class Interface < ActiveRecord::Base
     })
   end
 
-  def cleaned_number(number)
+  def self.cleaned_number(number)
     number[2..-1]
   end
 
