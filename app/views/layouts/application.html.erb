@@ -12,7 +12,6 @@
     <div class="indigo darken-4 nav-wrapper">
       <a href="/" class="brand-logo"><i class="material-icons left">phone</i>Agent Alert</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/about">About</a></li>
         <% if logged_in? %>
           <li><a href="/users/<%=current_user.id%>"><%=current_user.name%></a></li>
           <li><a href="/logout">Log Out</a></li>

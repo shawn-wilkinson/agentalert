@@ -1,6 +1,8 @@
-<h4>Sign Up</h4>
+<br>
+<br>
 <div class="row">
   <div class="col s6">
+    <h5>Sign Up</h5>
     <%= form_for :user, url: '/users' do |f| %>
       Full Name: <%= f.text_field :name, class: 'field' %>
       <br>
@@ -12,7 +14,7 @@
       <br>
       Password: <%= f.password_field :password, class: 'field' %>
       <br><br>
-      <%= f.submit "Sign Up", class: 'indigo btn'%>
+      <%= f.submit "Sign Up", class: 'red btn darken-4'%>
       <% if @message %>
         <p><%= @message %></p>
         <% if @user.errors %>
@@ -20,8 +22,17 @@
         <% end %>
       <% end %>
   </div>
-  <div class="col s6">
-  </div>
+    <div class="col s6">
+      <h5>Signing Up Is Easy</h5>
+      <ol>
+        <li>Enter your full name and a valid email address.</li><br>
+        <li>Please enter your full mobile phone number, including your area code, without dashes or other punctuation (ex: 5555555555).</li><br>
+        <li>Your panic word should be something you would be able to remember in a crisis, but is not something that you would commonly use. Please not that if you text this word to us at any time, we will alert your contacts. You can change your panic word at anytime from the profile page.</li><br>
+        <li>After signing up, you will need to add contacts in order to properly use our service. You can have a total of five contacts at a time. You can add and remove contacts via your profile page.</li><br>
+      </ol>
+    </div>
+
+
 
 </div>
 
