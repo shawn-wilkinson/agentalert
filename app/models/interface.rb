@@ -9,10 +9,10 @@ class Interface < ActiveRecord::Base
     user = User.find_by phone_number: number
     if user
       if body.downcase.include?(user.panic_word)
-        alert_contacts(user)
+        self.alert_contacts(user)
         return "Your contacts have been alerted."
       else
-        return "Thanks for texting Agent Alert, #{@user.name}"
+        return "Thanks for texting Agent Alert, #{user.name}"
       end
     else
       return "Thanks for texting agent alert #{body} from #{from}"
@@ -36,7 +36,6 @@ class Interface < ActiveRecord::Base
   end
 
   def self.send_alert(contact_name,user_name,phone_number,note=nil)
-    @user = User.find(params[:id])
     text = "#{contact_name}, this is an alert from Agent Alert. Your contact #{user_name} may be in trouble."
     if note
       text = text.concat(" Note from them: #{note}")
