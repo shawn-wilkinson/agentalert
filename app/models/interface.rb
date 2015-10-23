@@ -6,7 +6,8 @@ class Interface < ActiveRecord::Base
 
   def self.process_text(from,body)
     number = cleaned_number(from)
-    if user = User.find_by phone_number: number
+    user = User.find_by phone_number: number
+    if user
       if body.downcase.include?(user.panic_word)
         alert_contacts(user)
         return "Your contacts have been alerted."
@@ -16,7 +17,6 @@ class Interface < ActiveRecord::Base
     else
       return "Thanks for texting agent alert #{body} from #{from}"
     end
-
   end
 
   def self.test_user_number(name,phone_number)
