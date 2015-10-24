@@ -22,7 +22,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      result = Net::HTTP.get(URI.parse("https://agent-alert.herokuapp.com//interface/user_signup/#{@user.id}"))
+      EventMachine.run{
+        http = EventMachine::HttpRequest.new("https://agent-alert.herokuapp.com//interface/user_signup/#{@user.id}").get
+      }
+      # result = Net::HTTP.get(URI.parse("https://agent-alert.herokuapp.com//interface/user_signup/#{@user.id}"))
       session[:user_id] = @user.id
       redirect_to root_path
     else
