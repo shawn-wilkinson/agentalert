@@ -2,7 +2,7 @@
 <br>
 <div class="row">
   <div class="col s6">
-    <h5>Sign Up</h5>
+    <h5 class="section-header">Sign Up</h5>
     <%= form_for :user, url: '/users' do |f| %>
       Full Name: <%= f.text_field :name, class: 'field' %>
       <br>
@@ -23,7 +23,7 @@
       <% end %>
   </div>
     <div class="col s6">
-      <h5>Signing Up Is Easy</h5>
+      <h5 class="section-header">Signing Up Is Easy</h5>
       <ol>
         <li>Enter your full name and a valid email address.</li><br>
         <li>Please enter your full mobile phone number, including your area code, without dashes or other punctuation (ex: 5555555555).</li><br>

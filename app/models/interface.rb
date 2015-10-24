@@ -1,4 +1,5 @@
 require 'twilio-ruby'
+require 'net/http'
 
 class Interface < ActiveRecord::Base
   @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
@@ -17,6 +18,11 @@ class Interface < ActiveRecord::Base
     else
       return "Thanks for texting agent alert #{body} from #{from}"
     end
+  end
+
+  def self.user_signup(name,phone_number)
+    text = "Hello #{name}, this is a confirmation text from Agent Alert. Thanks for signing up."
+    send_text(phone_number,text)
   end
 
   def self.test_user_number(name,phone_number)

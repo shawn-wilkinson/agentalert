@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/interface/incoming' => 'interface#incoming'
   get '/interface/test_user_number/:id' => 'interface#test_user_number'
   get '/interface/test_contact_number/:id' => 'interface#test_contact_number'
+  get '/interface/user_signup/:id' => 'interface#user_signup'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

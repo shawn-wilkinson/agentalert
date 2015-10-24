@@ -1,12 +1,10 @@
-<h4>Welcome, <%= @user.name %></p>
+<h5>Welcome, <%= @user.name %></h5>
+<p>User Profile</p>
+<a href="/interface/test_user_number/<%=current_user.id%>">Test Your Number</a>
 
-  <a href="/interface/test_user_number/<%=current_user.id%>">Test Your Number</a>
-
-
-
-    <%if @contacts.count == 0 %>
-      <!-- <a class="red darken-2 btn modal-trigger" href="#modal1"><i class="large material-icons">warning</i> Please Enter Contacts</a> -->
-    <% else %>
+  <div class="row">
+    <%if @contacts.count != 0 %>
+      <div class="col s7">
       <h5>Your Contacts:</h5>
       <table>
         <thead>
@@ -14,36 +12,36 @@
             <th>Name</th>
             <th>Phone Number</th>
           </tr>
+        </thead>
         <tbody>
           <% @contacts.each do |contact| %>
             <tr>
               <td><%= contact.name %></td>
               <td><%= contact.phone_number %></td>
-              <td><a href="/interface/test_contact_number/<%=contact.id%>">Send Test Message</a>
-              <td><a href="/contacts/destroy/<%=contact.id%>">Delete Contact</a>
+              <td><a href="/interface/test_contact_number/<%=contact.id%>">Send Test Message</a></td>
+              <td><a href="/contacts/destroy/<%=contact.id%>">Delete Contact</a></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-    <%end %>
-
-    <div class="row">
-      <div class="col s6">
-        <div class="container">
-      <h5>Add A Contact</h5>
-      <%= form_for :contact, url: '/contacts', class: 'add-contact-form' do |f| %>
-        Full Name: <%= f.text_field :name, class: 'field' %>
-        <br>
-        Phone Number: <%= f.text_field :phone_number, class: 'field' %>
-        <br><br>
-        <%= f.submit "Submit Contact", class: 'indigo btn add-contact-btn'%>
-        <% if @message %>
-          <p><%= @message %></p>
-        <% end %>
-      <% end %>
     </div>
-</div>
-</div>
+    <div class="col s5">
+  <% else %>
+    <div class="col s7">
+  <% end %>
+    <h5>Add A Contact</h5>
+    <%= form_for :contact, url: '/contacts', class: 'add-contact-form' do |f| %>
+      Full Name: <%= f.text_field :name, class: 'field' %>
+      <br>
+      Phone Number: <%= f.text_field :phone_number, class: 'field' %>
+      <br><br>
+      <%= f.submit "Submit Contact", class: 'red btn darken-4'%>
+      <% if @message %>
+        <p><%= @message %></p>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
 
 
 

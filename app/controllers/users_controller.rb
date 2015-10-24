@@ -1,3 +1,5 @@
+require 'net/http'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -20,8 +22,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path
+      uri = URI.parse("/interface/user_signup/#{@user.id}")
+      request = Net::HTTP.get(uri)
       session[:user_id] = @user.id
+      redirect_to root_path
     else
       @message = "Invalid Registration. Please Try Again."
       render :new
