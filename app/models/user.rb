@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  private
-
   def test_number
     Interface.text_new_user(@name,@phone_number)
   end
