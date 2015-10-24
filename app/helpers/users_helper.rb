@@ -6,4 +6,5 @@ module UsersHelper
     message = error_hash.first[1][0].to_s
     return attribute.capitalize + " " + message + "."
   end
+
 end

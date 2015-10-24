@@ -1,6 +1,22 @@
-<h1>Editing User</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<br>
+<br>
+<div class="row">
+  <div class="col s6">
+    <h5 class="section-header">Edit</h5>
+    <%= form_for :user, :url => { :action => "update" }, method: :put do |f| %>
+      Full Name: <%= f.text_field :name, class: 'field' %>
+      <br>
+      Phone Number: <%= f.text_field :phone_number, class: 'field' %>
+      <br>
+      Panic Word: <%= f.text_field :panic_word, class: 'field' %>
+      <br><br>
+      <%= f.submit "Update Profile", class: 'red btn darken-4'%>
+      <% if @message %>
+        <p><%= @message %></p>
+        <% if @user.errors %>
+          <p><%= error_message_helper(@user.errors) %> </p>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>
+</div>

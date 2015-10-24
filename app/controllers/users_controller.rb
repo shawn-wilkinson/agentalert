@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to '/'
+    end
   end
 
 
@@ -32,6 +36,13 @@ class UsersController < ApplicationController
 
 
   def update
+     @user = User.find(session[:user_id])
+      if @user.update_attributes(update_user_params)
+         redirect_to "/users/#{@user.id}", :flash => { :success => "success" }
+      else
+        @message = "Unable To Update."
+        render :edit
+      end
   end
 
   def login
@@ -65,6 +76,10 @@ class UsersController < ApplicationController
 
   private
 
+    def current_user
+      User.find(session[:user_id])
+    end
+
     def set_user
       @user = User.find(params[:id])
     end
@@ -73,4 +88,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name,:email,:phone_number,:panic_word,:password)
     end
+
+    def update_user_params
+    params.require(:user).permit(:name,:phone_number,:panic_word)
+    end
+
 end

@@ -35,8 +35,6 @@ MVP:
 
 √ Want to be able to log out
 
-- Want to receive a message from Agent Alert when I sign up confirming that the number was entered correctly
-
 √ Want to be able to add contacts
 
 √ Want to be able to remove contacts
@@ -45,21 +43,20 @@ MVP:
 
 √ Want to be able to send test text messages to contacts
 
-- Want to be able to edit my phone number via the profile page
-
-- Want to be told if the phone number I am entering is improperly formatted
+√ Want to be able to edit my phone number via the profile page
 
 √ Want to be able to send a test text to my entered phone number
 
-- Want to receive a confirmation text when adding a new phone number
-
 √ Want to be able to have a "panic word" (created at sign up)
 
-- Want to be able to change this panic word at will from my profile page
+√ Want to be able to change this panic word at will from my profile page
 
 √ Want all my contacts to be notified via text if I text my panic word to agent alert at any time
 
 MVP+:
+
+- Want to be told if the phone number I am entering is improperly formatted
+- Want to receive a message from Agent Alert when I sign up confirming that the number was entered correctly
 
 - Want to be able to have a "clear word" (created at sign up)
 - Want to be able to change this clear word at will from my profile page
