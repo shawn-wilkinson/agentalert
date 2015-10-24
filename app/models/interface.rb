@@ -20,11 +20,6 @@ class Interface < ActiveRecord::Base
     end
   end
 
-  def self.user_signup(name,phone_number)
-    text = "Hello #{name}, this is a confirmation text from Agent Alert. Thanks for signing up."
-    send_text(phone_number,text)
-  end
-
   def self.test_user_number(name,phone_number)
     text = "Hello #{name}, this is a test SMS from Agent Alert."
     send_text(phone_number,text)

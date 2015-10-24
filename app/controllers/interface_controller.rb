@@ -22,11 +22,6 @@ class InterfaceController < ApplicationController
     redirect_to "/users/#{@contact.user.id}"
   end
 
-  def user_signup
-    @user = User.find(params[:id])
-    Interface.user_signup(@user.name,@user.phone_number)
-  end
-
   def send_alert
     @contact = Contact.find(params[:id])
     Interface.send_alert(@contact.name,@contact.user.name,@contact.phone_number)
