@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  after_create :test_number
+
   validates_presence_of :name
   validates_presence_of :email,:on => :create
   validates_presence_of :phone_number
@@ -9,4 +11,11 @@ class User < ActiveRecord::Base
   has_many :notifications
 
   has_secure_password
+
+  private
+
+  def test_number
+    Interface.text_new_user(@name,@phone_number)
+  end
+
 end
