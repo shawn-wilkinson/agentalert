@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :email,:on => :create
   validates_presence_of :phone_number
+  validates_format_of :phone_number, with: /\d{10}/, message: 'Incorrect Number Format.'
   validates_presence_of :panic_word
   validates_presence_of :password,:on => :create
 
