@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :email,:on => :create
+  validates_uniqueness_of :email
   validates_presence_of :phone_number
   validates_format_of :phone_number, with: /\d{10}/, message: 'Incorrect Number Format.'
   validates_presence_of :panic_word
