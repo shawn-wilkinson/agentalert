@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :phone_number, null: false
       t.string :panic_word, null: false
+      t.string :clear_word, null: false
 
       t.timestamps null: false
     end
