@@ -3,18 +3,44 @@ $primary-color: color("blue", "lighten-2") !default;
 @import "materialize";
 
 
-
 footer{
-
   bottom:0px;
   width:100%;
   margin-top:10px
 }
 
 .index-welcome{
-  height:400px;
+  min-height:400px;
+  overflow:auto;
+  width:100%;
 }
 
+#image-slider{
+  width:450px;
+  height:300px;
+  position:relative;
+  overflow:hidden;
+  float:left;
+  padding:0;
+  border:2px solid #666;
+  border-radius:5px;
+  box-shadow:2px 2px #efefef;
+}
+
+#image-slider img{
+  border-raius: 5px;
+}
+
+.slide-copy{
+  color:white;
+  position:absolute;
+  width:100%;
+  bottom:0px;
+  left:0px;
+  padding:10px 15px;
+  background:#656565;
+  background: rgba(0,0,0,0.5);
+}
 
 #faq-accordion{
   width:100%;

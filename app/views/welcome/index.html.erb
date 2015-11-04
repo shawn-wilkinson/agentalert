@@ -1,9 +1,44 @@
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <div class="row index-welcome">
-<div class="col s8">
-<h4>Personal Emergency Text Alerts</h4>
+  <div class="col s5">
+    <br>
+    <h5>Emergency Text Alerts
+    For Real Estate Agents</h5>
+    <p>The nature of the real estate industry encourages agents to meet with people they've never met, oftentimes in homes or areas they are not familiar with. As part of their marketing efforts, agents put their name, picture and contact information in the public space, hoping to convert strangers to clients. This opens the door to potential dangerous situations, especially when meeting in rural areas or vacant homes.</p>
+  </div>
+  <div class="col s7">
+    <br>
 
-<h5>Working in Real Estate can Be Dangerous.</h5>
-<p>The nature of the real estate industry encourages agents to meet with people they've never met, oftentimes in homes or areas they are not familiar with. As part of their marketing efforts, agents put their name, picture and contact information in the public space, hoping to convert strangers to clients. This opens the door to potentiall dangerous situations, especially when meeting in rural areas or vacant homes.
+    <div id="image-slider">
 
-</div>
+      <div class="slide">
+        <div class="slide-copy">
+          <p>The independent and entrepreneurial nature of the real estate industry can be fun and introduce you to many new people, but it also leaves agents vulnerable.</p>
+        </div>
+        <%= image_tag("agent.jpg", class: "slider-image")%>
+      </div>
+
+      <div class="slide">
+        <div class="slide-copy">
+          <p>Abandoned homes or rural areas isolate agents and provide an opportunity to those looking to do harm.</p>
+        </div>
+        <%= image_tag("foreclosed_homes.jpg", class: "slider-image")%>
+      </div>
+
+      <div class="slide">
+        <div class="slide-copy">
+          <p>While working alone, it is essential to have a backup plan in case a showing doesn't go as expected.</p>
+        </div>
+        <%= image_tag("interior.jpg", class: "slider-image")%>
+      </div>
+
+      <div class="slide">
+        <div class="slide-copy">
+          <p>Agent Alert allows you to discreetly notify contacts via text message in the event that you text us a panic word or do not check back in at a predetermined time.</p>
+        </div>
+        <%= image_tag("phone.jpg", class: "slider-image")%>
+      </div>
+
+    </div>
+  </div>
 </div>
