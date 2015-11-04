@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # get '/users/test_number' => 'users#test_number'
   resources :users
 
+  get '/about' => 'welcome#about'
+
   get '/logout' => 'users#logout'
   get '/login' => 'users#login'
   post '/login' => 'users#authenticate'

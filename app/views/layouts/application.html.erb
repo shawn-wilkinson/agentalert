@@ -6,13 +6,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag '/app/assets/images/phone.ico' %>
+ <!--  <%= favicon_link_tag '/app/assets/images/phone.ico' %> -->
 </head>
 <body>
+<div id="page-wrapper">
 <nav>
     <div class="light-blue nav-wrapper">
       <a href="/" class="brand-logo"><i class="material-icons left">phone</i>Agent Alert</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/about">About</a></li>
         <% if logged_in? %>
           <li><a href="/users/<%=current_user.id%>"><%=current_user.name%></a></li>
           <li><a href="/logout">Log Out</a></li>
@@ -41,5 +43,6 @@
             </div>
           </div>
         </footer>
+  </div>
 </body>
 </html>

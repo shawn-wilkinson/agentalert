@@ -3,3 +3,44 @@ $primary-color: color("blue", "lighten-2") !default;
 @import "materialize";
 
 
+
+footer{
+
+  bottom:0px;
+  width:100%;
+  margin-top:10px
+}
+
+.index-welcome{
+  height:400px;
+}
+
+
+#faq-accordion{
+  width:100%;
+  box-shadow:2px 2px #efefef;
+  border-radius:2px;
+
+  h5{
+    width:100%;
+    margin-bottom:0px;
+    line-height:1.6em;
+    font-size:135%;
+    border-radius:2px;
+    padding:3px;
+  }
+}
+
+.question{
+  line-height:1.6em;
+  font-size:135%;
+  padding:3px;
+  border-bottom:1px solid #efefef;
+  border-radius:2px;
+
+}
+
+.answer{
+  padding:3px;
+  border-radius:2px;
+}

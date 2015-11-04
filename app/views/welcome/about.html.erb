@@ -1,0 +1,40 @@
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<br>
+<br>
+<div class="row">
+  <div class="col s6">
+    <h5>About Us</h5>
+    <p>Agent Alert allows users to register a list of personal contacts who will be notified in the event that you text us a "panic word". Future versions of Agent Alert will allow you to set automatic alerts, which will alert your contacts at a time of your chosing unless you text us a specified "clear" word.</p>
+
+    <% if !logged_in? %>
+      <h5>How Do I Sign Up?</h5>
+      <p>Our serice is free. You must have a valid email and cell phone number to use Agent Alert. Please click on "Sign Up" at the top of this page.</p>
+    <% end %>
+
+
+
+  </div>
+  <div class="col s6">
+
+    <ul id="faq-accordion">
+      <h5 class="blue"> FAQ </h5>
+      <li class="blue lighten-3 question">1. What is Agent Alert?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">2. What technologies does it use?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">3. Who created Agent Alert?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">4. What is a 'panic word'?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">5. What is a 'clear word'?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">5. What are contacts?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">7. What is the correct number format?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-3 question">8. How do notifications work?</li>
+      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+    </ul>
+
+  </div>
+</div>

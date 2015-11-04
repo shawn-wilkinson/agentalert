@@ -51,6 +51,7 @@ class Interface < ActiveRecord::Base
 
   private
 
+
   def self.send_text(number,text)
     message = @@client.account.messages.create({
               :from => @@from,
