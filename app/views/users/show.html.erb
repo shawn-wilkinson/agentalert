@@ -24,23 +24,13 @@
             <td><%= @user.clear_word %></td>
             <td></td>
           </tr>
-
         </tbody>
-
       </table>
-
     </div>
-
     <div class="col s5">
     <%= link_to 'Edit Profile', edit_user_path(@user), class: "red btn darken-4" %>
     </div>
-
   </div>
-
-
-
-
-
 
   <div class="row">
     <%if @contacts.count != 0 %>
@@ -86,9 +76,4 @@
     <% end %>
     </div>
   </div>
-
-
-
-<br>
-<%= link_to 'Edit', edit_user_path(@user) %> |
 
