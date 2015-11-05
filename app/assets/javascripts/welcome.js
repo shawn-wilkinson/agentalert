@@ -14,22 +14,9 @@ $(document).ready(function(event){
 
   // IMAGE SLIDER ON INDEX PAGE
 
-  //Set Options
-
-
-
-  //Add initial active class
   $('.slide').first().addClass('active');
-
-  //Hide all slides
   $('.slide').hide();
-
-  //Show first slide
   $('.active').show();
-
-
-  //Auto Slider Handler
-
 
   setInterval(nextSlide,7000);
 
@@ -47,8 +34,6 @@ $(document).ready(function(event){
     $('.slide').fadeOut(700);
     $('.active').fadeIn(700);
   }
-
-
 
 });
 
