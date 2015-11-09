@@ -2,21 +2,23 @@ require 'twilio-ruby'
 require 'net/http'
 
 class Interface < ActiveRecord::Base
-  @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
+  # @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
   @@from ='+15854818275'
 
   def self.process_text(from,body)
     number = cleaned_number(from)
     user = User.find_by phone_number: number
-    if user
-      if body.downcase.include?(user.panic_word)
-        self.alert_contacts(user)
-        return "Your contacts have been alerted."
-      else
-        return "Thanks for texting Agent Alert, #{user.name}"
-      end
-    else
+    if user == nil
       return "Thanks for texting agent alert #{body} from #{from}"
+    elsif self.include_panic_word?(user,body)
+      # self.alert_contacts(user)
+      p 'panic word!'
+      return "Your contacts have been alerted."
+    elsif self.notification_formatted?(body)
+      self.establish_notification(user,body)
+      return "Notification created, #{user.name}."
+    else
+      return "Thanks for texting Agent Alert, #{user.name}"
     end
   end
 
@@ -35,6 +37,11 @@ class Interface < ActiveRecord::Base
     send_text(phone_number,text)
   end
 
+  def self.establish_notification(user,body)
+    time, note = self.extract_time_and_note(body)
+    Notification.create_notification(user.id,time,note)
+  end
+
   def self.alert_contacts(user)
     user.contacts.each do |contact|
       send_alert(contact.name,user.name,contact.phone_number)
@@ -50,6 +57,25 @@ class Interface < ActiveRecord::Base
   end
 
   private
+
+  def self.notification_formatted?(body)
+    matcher = /notify\s*\d+/
+    matcher =~ body
+  end
+
+  def self.include_panic_word?(user,body)
+    body.downcase.include?(user.panic_word.downcase)
+  end
+
+  def self.extract_time_and_note(body)
+    matcher = /notify\s*\d+/
+    matching_command = body.match(matcher)[0]
+    isolated_command = body.slice!(matching_command)
+    time = isolated_command.slice!(/\d+/).to_i
+    note = body.strip
+    note = nil if note == ""
+    return time, note
+  end
 
 
   def self.send_text(number,text)

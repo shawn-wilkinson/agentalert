@@ -8,5 +8,12 @@ class Notification < ActiveRecord::Base
     end
   end
 
+  def self.create_notification(user_id,minutes,note = nil)
+    time = Time.now + (minutes.to_i * 60)
+    p "Time is: #{Time.now}, notification for #{time}"
+    new_notificaiton = Notification.create(user_id:user_id,note:note,contact_time:time)
+    p new_notificaiton
+  end
+
 
 end
