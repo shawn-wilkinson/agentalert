@@ -11,7 +11,7 @@ class Interface < ActiveRecord::Base
     if user == nil
       return "Thanks for texting agent alert #{body} from #{from}"
     elsif self.include_panic_word?(user,body)
-      # self.alert_contacts(user)
+      self.alert_contacts(user)
       p 'panic word!'
       return "Your contacts have been alerted."
     elsif self.notification_formatted?(body)
