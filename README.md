@@ -29,7 +29,7 @@ Before an agent goes into an appointment they can establish a "notification" by 
 
 As a user I...
 
-MVP:
+MVP (Currently deployed on Heroku):
 
 √ Want to be able to sign up securely
 
@@ -57,17 +57,23 @@ MVP:
 
 √ Want to receive a message from Agent Alert when I sign up confirming that the number was entered correctly
 
-MVP+:
+MVP+ (Not yet deployed on Heroku - running locally and in this repo):
+
+√ Want to be able to have a "clear word" (created at sign up)
+
+√ Want to be able to change this clear word at will from my profile page
+
+√ Want to be able to text agent alert to set up a 'notification'
+
+√ Want to be able to provide a 'note' for the notification (also via text) to give more information about what I am doing / where I am going.
 
 - Want to be told if the phone number I am entering is improperly formatted
+
 - Want to receive a message from Agent Alert when I sign up confirming that the number was entered correctly
 
-- Want to be able to have a "clear word" (created at sign up)
-- Want to be able to change this clear word at will from my profile page
-
-- Want to be able to text agent alert to set up a 'notification'
-- Want to be able to provide a 'note' for the notification (also via text) to give more information about what I am doing / where I am going.
 - Want to be able to set a time for agent alert to check back in with me via text
+
 - If I don't respond within a certain amount of time, or send my panic word as part of a response, I want my contacts to be notified
+
 - If I have provided a note as part of the notification, I want this note to be sent to my contacts as well
 
