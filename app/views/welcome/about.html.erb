@@ -5,36 +5,30 @@
   <div class="col s6">
     <h5>About Us</h5>
     <p>Agent Alert allows users to register a list of personal contacts who will be notified in the event that you text us a "panic word". Future versions of Agent Alert will allow you to set automatic alerts, which will alert your contacts at a time of your chosing unless you text us a specified "clear" word.</p>
-
     <% if !logged_in? %>
       <h5>How Do I Sign Up?</h5>
       <p>Our serice is free. You must have a valid email and cell phone number to use Agent Alert. Please click on "Sign Up" at the top of this page.</p>
     <% end %>
-
-
-
   </div>
   <div class="col s6">
-
     <ul id="faq-accordion">
       <h5 class="blue"> FAQ </h5>
       <li class="blue lighten-3 question">1. What is Agent Alert?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">Agent Alert is an emergency SMS contact system for real estate agents. It allows agents to discreetly alert multiple contacts via text in case of emergency.</li>
       <li class="blue lighten-3 question">2. What technologies does it use?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">Agent Alert uses Ruby on Rails, a PostgreSQL database and a Materialize front end framework. It utilizes Twilio to send and receive SMS messages and is deployed on Heroku.</li>
       <li class="blue lighten-3 question">3. Who created Agent Alert?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">Agent Alert is being developed by Shawn Wilkinson, a Chicago-based web developer.</li>
       <li class="blue lighten-3 question">4. What is a 'panic word'?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">A panic word is a custom reserved word that you can create / edit from your user profile page. This word, when texted to agent alert, will trigger emergency alerts to all of your listed contacts.</li>
       <li class="blue lighten-3 question">5. What is a 'clear word'?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">A clear word is similar to panic word, except that it is used to indicate that everything is "OK" following a check-in by Agent Alert.</li>
       <li class="blue lighten-3 question">5. What are contacts?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">Contacts are notified via text when an alert is sent out on your behalf. You can have up to five contacts at a time, and can add / change / remove them from your user profile page.</li>
       <li class="blue lighten-3 question">7. What is the correct number format?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">The correct format for phone numbers is the three digit area code, followed by the 7 digit phone number, with no dashes or other punctuation. For example, 5551234567 would be a correctly formatted number, as opposed to 555-123-4567, which is not.</li>
       <li class="blue lighten-3 question">8. How do notifications work?</li>
-      <li class="blue lighten-5 answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</li>
+      <li class="blue lighten-5 answer">You can set up a notification by texting agent alert. In your notification, you can specify a time you would like Agent Alert to get back in touch with you via text. If you do not respond within five minutes with a phrase including your 'clear word', your contacts will be alerted. To set up a notification, text "notify" followed by the number of minutes delay you would like. For example, "notify 10" would set up a follow-up text for 10 minutes from now. Note: this feature is not yet available.</li>
     </ul>
-
   </div>
 </div>
