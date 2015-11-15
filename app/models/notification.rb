@@ -2,18 +2,12 @@ class Notification < ActiveRecord::Base
   belongs_to :user
   has_many :contacts, through: :user
 
-  # def alert_contacts
-  #   contacts.each do |contact|
-  #     puts "Alerting #{contact.name}"
-  #   end
-  # end
-
-  def alert_status_true
-    alert_sent? = true
+  def alert_sent_true
+    update_attribute(:alert_sent?,true)
   end
 
   def checked_in_true
-    checked_in? = true
+    update_attribute(:checked_in?,true)
   end
 
   def self.create_notification(user_id,minutes,note = nil)
