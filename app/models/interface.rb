@@ -12,10 +12,10 @@ class Interface < ActiveRecord::Base
       return "Thanks for texting agent alert #{body} from #{from}"
     elsif self.include_panic_word?(user,body)
       self.alert_contacts(user)
-      user.notifications.last.alert_sent? = true
+      user.notifications.last.alert_status_true
       return "Your contacts have been alerted."
     elsif self.include_clear_word?(user,body)
-      user.notifications.last.checked_in? = true
+      user.notifications.last.checked_in_true
       return "Thanks for checking in, #{user.name}"
     elsif self.notification_formatted?(body)
       self.establish_notification(user,body)

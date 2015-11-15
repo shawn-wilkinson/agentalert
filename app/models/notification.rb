@@ -8,6 +8,14 @@ class Notification < ActiveRecord::Base
   #   end
   # end
 
+  def alert_status_true
+    self.alert_sent? = true
+  end
+
+  def checked_in_true
+    self.checked_in? = true
+  end
+
   def self.create_notification(user_id,minutes,note = nil)
     time = Time.now + (minutes.to_i * 60)
     @user = User.find(user_id)
