@@ -69,7 +69,7 @@ class Interface < ActiveRecord::Base
 
   def self.notification_formatted?(body)
     matcher = /notify\s*\d+/
-    matcher =~ body
+    matcher =~ body.downcase
   end
 
   def self.include_panic_word?(user,body)
@@ -81,6 +81,7 @@ class Interface < ActiveRecord::Base
   end
 
   def self.extract_time_and_note(body)
+    body = body.downcase
     matcher = /notify\s*\d+/
     matching_command = body.match(matcher)[0]
     isolated_command = body.slice!(matching_command)
