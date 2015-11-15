@@ -2,7 +2,7 @@ require 'twilio-ruby'
 require 'net/http'
 
 class Interface < ActiveRecord::Base
-  @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
+  # @@client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
   @@from ='+15854818275'
 
   def self.process_text(from,body)
@@ -12,8 +12,11 @@ class Interface < ActiveRecord::Base
       return "Thanks for texting agent alert #{body} from #{from}"
     elsif self.include_panic_word?(user,body)
       self.alert_contacts(user)
-      p 'panic word!'
+      user.notifications.last.alert_sent? = true
       return "Your contacts have been alerted."
+    elsif self.include_clear_word?(user,body)
+      user.notifications.last.checked_in? = true
+      return "Thanks for checking in, #{user.name}"
     elsif self.notification_formatted?(body)
       self.establish_notification(user,body)
       return "Notification created, #{user.name}."
@@ -56,6 +59,12 @@ class Interface < ActiveRecord::Base
     send_text(phone_number,text)
   end
 
+  def self.check_back_in(user_name,phone_number)
+    text = "#{user_name}, just checking back in..."
+    p text
+    # send_text(phone_number,text)
+  end
+
   private
 
   def self.notification_formatted?(body)
@@ -65,6 +74,10 @@ class Interface < ActiveRecord::Base
 
   def self.include_panic_word?(user,body)
     body.downcase.include?(user.panic_word.downcase)
+  end
+
+  def self.include_clear_word?(user,body)
+    body.downcase.include?(user.clear_word.downcase)
   end
 
   def self.extract_time_and_note(body)

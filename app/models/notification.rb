@@ -2,18 +2,40 @@ class Notification < ActiveRecord::Base
   belongs_to :user
   has_many :contacts, through: :user
 
-  def alert_contacts
-    contacts.each do |contact|
-      puts "Alerting #{contact.name}"
-    end
-  end
+  # def alert_contacts
+  #   contacts.each do |contact|
+  #     puts "Alerting #{contact.name}"
+  #   end
+  # end
 
   def self.create_notification(user_id,minutes,note = nil)
     time = Time.now + (minutes.to_i * 60)
-    p "Time is: #{Time.now}, notification for #{time}"
-    new_notificaiton = Notification.create(user_id:user_id,note:note,contact_time:time)
-    p new_notificaiton
+    @user = User.find(user_id)
+    Notification.create(user_id:user_id,note:note,contact_time:time)
+    Notification.create_worker(user_id,'check in', minutes.to_i)
+    delayed_minutes = minutes.to_i + 2
+    Notification.create_worker(user_id,'alert needed?', delayed_minutes)
   end
+
+  def self.create_worker(user_id,message_type,minute_delay)
+    @user = User.find(user_id)
+    if message_type == 'check in'
+      p 'checking in...'
+      snippet = Snippet.create({code: "
+        user = User.find(#{user_id})
+        user.check_back_in
+      "})
+      NotificationWorker.perform_in(minute_delay.minutes,snippet.id)
+    elsif message_type == 'alert needed?'
+      p 'alert is needed...'
+      snippet = Snippet.create({code: "
+        user = User.find(#{user_id})
+        user.check_in_follow_up
+      "})
+      NotificationWorker.perform_in(minute_delay.minutes,snippet.id)
+    end
+  end
+
 
 
 end
