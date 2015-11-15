@@ -9,11 +9,11 @@ class Notification < ActiveRecord::Base
   # end
 
   def alert_status_true
-    self.alert_sent? = true
+    alert_sent? = true
   end
 
   def checked_in_true
-    self.checked_in? = true
+    checked_in? = true
   end
 
   def self.create_notification(user_id,minutes,note = nil)
