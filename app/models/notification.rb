@@ -24,6 +24,7 @@ class Notification < ActiveRecord::Base
     if message_type == 'check in'
       p 'checking in...'
       snippet = Snippet.create({code: "
+        p 'INSIDE THE SNIPPET TO CHECK IN'
         user = User.find(#{user_id})
         user.check_back_in
       "})
@@ -31,6 +32,7 @@ class Notification < ActiveRecord::Base
     elsif message_type == 'alert needed?'
       p 'alert is needed...'
       snippet = Snippet.create({code: "
+        p 'INSIDE THE SNIPPET TO ALERT CONTACTS'
         user = User.find(#{user_id})
         user.check_in_follow_up
       "})
