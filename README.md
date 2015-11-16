@@ -2,6 +2,15 @@
 
 [Deployed on Heroku](https://agent-alert.herokuapp.com/)
 
+Agent Alert is an emergency text alert system. It allows users to notify multiple contacts via SMS simply by texting a 'panic word' to our service, or by failing to respond to a check in from our service at a specified time.
+
+###Technologies Used:
+- Ruby / Rails
+- Twilio (Send and Receive SMS Messages)
+- Sidekiq (Background Job Processing)
+- Materialize CSS
+- JavaScript / jQuery
+
 ###The Motivation
 
 The Real Estate industry is unlike many others in that you must engage frequently with people you've just met in places you are oftentimes unfamiliar with. In order to succeed in this competitive business, you must respond to leads from complete strangers, that may have seen your information online or elsewhere in the hope that they convert to clients.
@@ -29,7 +38,7 @@ Before an agent goes into an appointment they can establish a "notification" by 
 
 As a user I...
 
-MVP (Currently deployed on Heroku):
+MVP Functionality:
 
 √ Want to be able to sign up securely
 
@@ -57,7 +66,7 @@ MVP (Currently deployed on Heroku):
 
 √ Want to receive a message from Agent Alert when I sign up confirming that the number was entered correctly
 
-MVP+ (Not yet deployed on Heroku - running locally and in this repo):
+MVP+ Functionality:
 
 √ Want to be able to have a "clear word" (created at sign up)
 
@@ -71,9 +80,9 @@ MVP+ (Not yet deployed on Heroku - running locally and in this repo):
 
 - Want to receive a message from Agent Alert when I sign up confirming that the number was entered correctly
 
-- Want to be able to set a time for agent alert to check back in with me via text
+√ Want to be able to set a time for agent alert to check back in with me via text
 
-- If I don't respond within a certain amount of time, or send my panic word as part of a response, I want my contacts to be notified
+√ If I don't respond within a certain amount of time, or send my panic word as part of a response, I want my contacts to be notified
 
 - If I have provided a note as part of the notification, I want this note to be sent to my contacts as well
 
