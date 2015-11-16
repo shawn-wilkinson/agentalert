@@ -52,7 +52,7 @@ class Interface < ActiveRecord::Base
   end
 
   def self.send_alert(contact_name,user_name,phone_number,note=nil)
-    text = "#{contact_name}, this is an alert from Agent Alert. Your contact #{user_name} may be in trouble."
+    text = "#{contact_name}, this is an alert from Agent Alert. Your contact #{user_name} may be in trouble!"
     if note
       text = text.concat(" Note from them: #{note}")
     end

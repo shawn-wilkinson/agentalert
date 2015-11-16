@@ -22,17 +22,14 @@ class Notification < ActiveRecord::Base
   def self.create_worker(user_id,message_type,minute_delay)
     @user = User.find(user_id)
     if message_type == 'check in'
-      p 'checking in...'
+
       snippet = Snippet.create({code: "
-        p 'INSIDE THE SNIPPET TO CHECK IN'
         user = User.find(#{user_id})
         user.check_back_in
       "})
       NotificationWorker.perform_in(minute_delay.minutes,snippet.id)
     elsif message_type == 'alert needed?'
-      p 'alert is needed...'
       snippet = Snippet.create({code: "
-        p 'INSIDE THE SNIPPET TO ALERT CONTACTS'
         user = User.find(#{user_id})
         user.check_in_follow_up
       "})
