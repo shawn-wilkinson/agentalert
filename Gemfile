@@ -29,6 +29,7 @@ gem 'materialize-sass'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'sidekiq'
+gem 'sidekiq-failures'
 gem 'sinatra', :require => nil
 
 # Use ActiveModel has_secure_password
