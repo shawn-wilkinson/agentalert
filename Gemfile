@@ -28,8 +28,10 @@ gem 'twilio-ruby'
 gem 'materialize-sass'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'redis'
 gem 'sidekiq'
 gem 'sidekiq-failures'
+gem 'unicorn'
 gem 'sinatra', :require => nil
 
 # Use ActiveModel has_secure_password

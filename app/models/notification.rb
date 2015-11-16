@@ -36,8 +36,7 @@ class Notification < ActiveRecord::Base
         user = User.find(#{user_id})
         user.check_in_follow_up
       "})
-      NotificationWorker.perform_async(snippet.id)
-      # NotificationWorker.perform_in(minute_delay.minutes,snippet.id)
+      NotificationWorker.perform_in(minute_delay.minutes,snippet.id)
     end
   end
 
