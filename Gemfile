@@ -29,6 +29,7 @@ gem 'materialize-sass'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'sidekiq'
+gem 'sinatra', :require => nil
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
