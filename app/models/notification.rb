@@ -22,7 +22,6 @@ class Notification < ActiveRecord::Base
   def self.create_worker(user_id,message_type,minute_delay)
     @user = User.find(user_id)
     if message_type == 'check in'
-
       snippet = Snippet.create({code: "
         user = User.find(#{user_id})
         user.check_back_in
